@@ -5,14 +5,14 @@ import java.util.List;
 
 public class AlienDictionary {
 
-	private List<Word> words;
+	private List<Word> dictionary;
 	
 	/**Costruttore Dizionario alieno, crea una LinkedList
 	 * di Word
 	 * 
 	 */
 	public AlienDictionary() {
-		this.words = new LinkedList<Word>();
+		this.dictionary = new LinkedList<Word>();
 	}
 
 	/**Aggiunge una nuova parola alla Lista dizionario
@@ -26,11 +26,11 @@ public class AlienDictionary {
 		String aw = alienWord.toLowerCase();
 		String tr = translation.toLowerCase();
 		Word word = new Word(aw, tr);
-		if(this.words.indexOf(word) != -1) {
-			this.words.get(this.words.indexOf(word)).setTranslation(tr);
+		if(this.dictionary.indexOf(word) != -1) {
+			this.dictionary.get(this.dictionary.indexOf(word)).setTranslation(tr);
 		}
 		else {
-			this.words.add(word);
+			this.dictionary.add(word);
 		}
 	}
 	
@@ -41,9 +41,9 @@ public class AlienDictionary {
 	 * @return parola inglese corrispondente, o null se non esiste traduzione
 	 */
 	public String translateWord(String alienWord) {
-		for(Word w : words) {
+		for(Word w : dictionary) {
 			if(w.getAlienWord().equals(alienWord.toLowerCase())) {
-				return w.getTranslation();
+				return w.getTranslations();
 			}
 		}
 		return null;
@@ -53,12 +53,12 @@ public class AlienDictionary {
 	 * cancella tutta la lista di parole
 	 */
 	public void clearDictionary() {
-		words.clear();
+		dictionary.clear();
 	}
 	
 	public String printWords() {
 		String s = "";
-		for(Word w : words) {
+		for(Word w : dictionary) {
 			s += w.toString();
 		}
 		return s;

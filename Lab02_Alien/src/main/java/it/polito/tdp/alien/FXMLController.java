@@ -90,11 +90,11 @@ public class FXMLController {
     		
     		String traduzione = model.traduzioneParola(parolaAliena);
     		if(traduzione == null) {
-    			txtTranslation.setText("Parola non esistente nel dizionario!");
+    			txtTranslation.setText("La parola " + parolaAliena.toLowerCase() + " non esiste nel dizionario!");
     			wordTxt.clear();
     			return;
     		}
-    		txtTranslation.setText("La traduzione della parola " + parolaAliena + " è " + traduzione);
+    		txtTranslation.setText("La/e traduzione/i della parola " + parolaAliena + " è/sono: " + traduzione);
     		wordTxt.clear();
     	}
     }
